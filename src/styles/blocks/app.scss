@@ -1,0 +1,12 @@
+.app {
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(248.66deg, #FF9696 0%, #8C6BAE 100%);
+
+    & .left {
+        width: 60%;
+        margin: 60px;
+    }
+
+    // & .right {}
+}
