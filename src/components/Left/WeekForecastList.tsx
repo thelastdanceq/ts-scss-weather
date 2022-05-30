@@ -10,7 +10,8 @@ const WeekForecastList = (props: Props) => {
     return (
         <div className='weekforecast-list'>
             {
-                props.forecast.map(el => {
+                props.forecast.map((el, index) => {
+                    if (index === 0) return null;
                     return <WeekForecastListItem key={el.date_epoch} {...el} />
                 })
             }
