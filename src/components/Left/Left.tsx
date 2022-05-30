@@ -1,14 +1,13 @@
-import React from 'react'
-import { IWeather } from '../../App';
+import React, { useContext } from 'react'
+import { context } from '../../App';
 import Now from './Now'
 import WeekForecast from './WeekForecast'
 
-type Props = {
-    weather: IWeather;
-}
 
-const Left = (props: Props) => {
-    const { location, current } = props.weather;
+const Left = () => {
+    const cont = useContext(context);
+    let { weather } = cont!;
+    const { current, location } = weather;
     return (
         <div className='left'>
             {
@@ -16,7 +15,7 @@ const Left = (props: Props) => {
                     ? <Now current={current} location={location} />
                     : <h1>loading...</h1>
             }
-            {/* <WeekForecast /> */}
+            <WeekForecast />
         </div>
     )
 }

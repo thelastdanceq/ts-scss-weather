@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import Left from './components/Left/Left'
 import Right from './components/Right/Right'
 import { getForecast } from './functions/api'
@@ -51,23 +51,31 @@ export interface IForecast {
 }
 
 export interface IWeather {
-  location?: ILocation;
-  current?: ICurrent;
-  forecast?: IForecast;
+  location: ILocation;
+  current: ICurrent;
+  forecast: IForecast;
 }
 
-export const App = () => {
-  const [weather, setWeather] = useState<IWeather>({})
+export const context = createContext<{
+  weather: IWeather;
+} | null>(null);
 
+export const App = () => {
+  const [weather, setWeather] = useState<IWeather>({} as IWeather)
   useEffect(() => {
-    (getForecast("Коломыя").then(data => setWeather(data)
+    (getForecast("Коротыч").then(data => setWeather(data)
     ));
   }, [])
 
+
   return (
+
     <div className="app">
-      <Left weather={weather} />
-      {/* <Right /> */}
+      <context.Provider value={{ weather }}>
+        <Left />
+        <Right />
+      </context.Provider>
+
     </div>
   )
 }
