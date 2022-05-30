@@ -1,0 +1,40 @@
+.weekforecast {
+    padding-top: 80px;
+
+    &-list {
+        display: flex;
+        flex-direction: row;
+        max-width: 600px;
+        overflow-x: auto;
+
+
+        &-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-right: 60px;
+
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+
+            & img {
+                margin: 15px 0;
+                width: 70px;
+                height: 70px;
+            }
+
+            & p {
+                font-family: 'Overpass';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 30px;
+                text-align: center;
+                text-shadow: -1.13852px 1.70778px 0.569258px rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+}

@@ -63,7 +63,8 @@ export const context = createContext<{
 export const App = () => {
   const [weather, setWeather] = useState<IWeather>({} as IWeather)
   useEffect(() => {
-    (getForecast("Коротыч").then(data => setWeather(data)
+    
+    (getForecast("Коротыч").then(data => {setWeather(data)}
     ));
   }, [])
 
