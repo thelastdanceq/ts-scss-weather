@@ -1,4 +1,4 @@
-import { ICurrent, ILocation } from '../../App'
+import { context } from '../../App'
 import { getPostfix, getMonth, getWeekDay, getImage } from '../../functions/postfix';
 //@ts-ignore
 import wind from '../../assets/wind.png'
@@ -6,15 +6,14 @@ import wind from '../../assets/wind.png'
 import humidity from '../../assets/humidity.png'
 //@ts-ignore
 import rain from '../../assets/rain.png'
-
-type Props = {
-    current: ICurrent;
-    location: ILocation;
-}
+import { useContext } from 'react';
 
 
-const Now = (props: Props) => {
-    const { current, location } = props;
+
+const Now = () => {
+    const cont = useContext(context);
+    const { weather } = cont!;
+    const { location, current } = weather
 
     const date = new Date(location.localtime_epoch * 1000);
 

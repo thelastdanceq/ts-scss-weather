@@ -12,7 +12,7 @@ const Left = () => {
         <div className='left'>
             {
                 current && location
-                    ? <Now current={current} location={location} />
+                    ? <Now />
                     : <h1>loading...</h1>
             }
             <WeekForecast />
