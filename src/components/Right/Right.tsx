@@ -1,11 +1,14 @@
 import React from 'react'
+import DailyForecast from './DailyForecast'
+import Search from './Serch'
 
 type Props = {}
 
 const Right = (props: Props) => {
     return (
         <div className='right'>
-            Right
+            <Search />
+            {/* <DailyForecast /> */}
         </div>
     )
 }

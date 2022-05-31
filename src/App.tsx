@@ -58,6 +58,7 @@ export interface IWeather {
 
 export const context = createContext<{
   weather: IWeather;
+  setWeather: React.Dispatch<React.SetStateAction<IWeather>>;
 } | null>(null);
 
 export const App = () => {
@@ -79,7 +80,7 @@ export const App = () => {
   return (
 
     <div className="app">
-      <context.Provider value={{ weather }}>
+      <context.Provider value={{ weather, setWeather }}>
         <Left />
         <Right />
       </context.Provider>

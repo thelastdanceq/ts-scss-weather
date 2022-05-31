@@ -46,29 +46,25 @@ export const getWeekDay = (num: number): string => {
 }
 
 export const getImage = (code: number): string => {
-    switch (code) {
-        case 1003 || 1006:
-            return cloude
-        case 1063 || 1180 || 1198 || 1201 || 1240 || 1243 || 1246:
-            return littlerain
-        case 1183 || 1186 || 1189 || 1192 || 1195 || 1273 || 1276:
-            return rain
-        case 1066 || 1210 || 1213 || 1216 || 1222 || 1255 || 1258 || 1279 || 1282:
-            return littlesnow
-        case 1114 || 1210 || 1213 || 1219 || 1225:
-            return snow
-        case 1135 || 1147 || 1030 || 1117 || 1147:
-            return mist
-        case 1090:
-            return overcast
-        case 1000:
-            return sunny
-        case 1087 || 1273 || 1276 || 1279 || 1282:
-            return thunder
-        case 1072 || 1150 || 1153 || 1168 || 1171:
-            return wetsnow
+    const heavyRain = [1183, 1186, 1189, 1192, 1195, 1273, 1276];
+    const litRain = [1240, 1063, 1180, 1198, 1201, 1243, 1246];
+    const clods = [1003, 1006];
+    const litSnow = [1066, 1210, 1213, 1216, 1222, 1255, 1258, 1279, 1282]
+    const heavySnow = [1114, 1210, 1213, 1219, 1225]
+    const misty = [1135, 1147, 1030, 1117];
+    const thund = [1087, 1273, 1276, 1279, 1282];
+    const wetSnow = [1072, 1150, 1153, 1168, 1171]
 
-        default:
-            return common;
-    }
+    if (heavyRain.includes(code)) return rain;
+    if (litRain.includes(code)) return littlerain;
+    if (clods.includes(code)) return cloude;
+    if (litSnow.includes(code)) return littlesnow;
+    if (heavySnow.includes(code)) return snow;
+    if (misty.includes(code)) return mist;
+    if (code === 1009) return overcast;
+    if (code === 1000) return sunny;
+    if (thund.includes(code)) return thunder;
+    if (wetSnow.includes(code)) return wetsnow;
+
+    return common;
 }

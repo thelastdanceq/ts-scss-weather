@@ -20,7 +20,7 @@ const Now = () => {
     return (
         <div className='now'>
             <div className="now-image">
-                <img src={getImage(1003)} alt="" />
+                <img src={getImage(current.condition.code)} alt="" />
             </div>
             <div className="now-temp">
                 <p>{current.temp_c} &deg;</p>
