@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { context } from '../../App'
+import { getDailyForecast } from '../../functions/dailyforecast';
+import DailyForecastList from './DayliForecastList';
 
-type Props = {}
 
-const DailyForecast = (props: Props) => {
+const DailyForecast = () => {
+    const { weather } = useContext(context)!;
+    const { forecast } = weather;
+
     return (
-        <div>DailyForecast</div>
+        <div className="dailyforecast">
+            {
+                <DailyForecastList data={getDailyForecast(forecast.forecastday.slice(0, 2))} />
+            }
+        </div>
     )
 }
 

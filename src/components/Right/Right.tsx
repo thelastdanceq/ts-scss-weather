@@ -8,7 +8,7 @@ const Right = (props: Props) => {
     return (
         <div className='right'>
             <Search />
-            {/* <DailyForecast /> */}
+            <DailyForecast />
         </div>
     )
 }

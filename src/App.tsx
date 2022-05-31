@@ -23,6 +23,17 @@ export interface ICurrent {
   humidity: number,
   cloud: number,
 }
+
+export interface IForecastHour {
+  "time_epoch": number,
+  "temp_c": number,
+  "condition": {
+    "text": string,
+    "icon": string,
+    "code": number,
+  },
+  "chance_of_rain": 67,
+}
 export interface IForecastDay {
   "date_epoch": number,
   day: {
@@ -34,16 +45,7 @@ export interface IForecastDay {
     },
     "daily_chance_of_rain": number,
   }
-  hour: {
-    "time_epoch": number,
-    "temp_c": number,
-    "condition": {
-      "text": string,
-      "icon": string,
-      "code": number,
-    },
-    "chance_of_rain": 67,
-  }[]
+  hour: IForecastHour[]
 
 
 }
