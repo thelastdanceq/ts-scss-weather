@@ -23,7 +23,7 @@ const Now = () => {
                 <img src={getImage(current.condition.code)} alt="" />
             </div>
             <div className="now-temp">
-                <p>{current.temp_c} &deg;</p>
+                <p>{`${current.temp_c} `}&deg;</p>
             </div>
             <div className="now-date">
                 <span>{getPostfix(date.getDate())} {getMonth(date.getMonth()).slice(0, 3)} '{date.getFullYear() - 2000} </span>

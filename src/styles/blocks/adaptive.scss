@@ -1,0 +1,83 @@
+// 320px — 480px: Mobile devices
+
+@media (min-width : 320px) and (max-width : 480px) {
+    .app {
+        .left {
+
+            max-width: 100%;
+            margin: 0;
+
+            .now {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+
+                &-date {
+
+                    span {
+                        font-size: 50px;
+                    }
+
+                    p {
+                        font-size: 40px;
+                    }
+                }
+            }
+
+
+            .now-temp {
+                font-size: 130px;
+            }
+
+            .now-stats {
+                display: flex;
+                flex-direction: column;
+
+                & div {
+                    border: none;
+                    padding: 0;
+                    justify-content: flex-start;
+                    font-size: 25px;
+
+                    &:not(:last-child) {
+                        padding-bottom: 10px;
+                    }
+                }
+            }
+
+            .weekforecast {
+                padding: 40px 10px 0px 10px;
+            }
+        }
+
+        .right {
+            padding-right: 0;
+            padding-top: 45px;
+            width: 90%;
+
+            &-search {
+
+                top: 20px;
+
+                input {
+                    width: 70%;
+                }
+            }
+        }
+    }
+
+}
+
+// 481px — 768px: iPads, Tablets
+@media screen and (min-width : 481px) and (max-width : 768px) {}
+
+// 769px — 1024px: Small screens, laptops
+@media screen and (min-width : 769px) and (max-width : 1024px) {}
+
+// 1025px — 1200px: Desktops, large screens
+@media screen and (min-width : 1025px) and (max-width : 1200px) {}
+
+// 1201px and more —  Extra large screens, TV
+@media screen and (min-width : 1201px) {}
