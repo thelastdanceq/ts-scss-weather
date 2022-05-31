@@ -34,7 +34,19 @@ const Search = (props: Props) => {
 
 
   const searchHandler = () => {
+    getForecast(search)
+      .then(firstdata => (firstdata))
+      .then((fulldata: IWeather) => {
+        getForecastFor7Days(search).then(data => {
+          if (fulldata.forecast) {
+            const asd: IWeather = JSON.parse(JSON.stringify(fulldata))
+            asd.forecast.forecastday = [...asd.forecast.forecastday, ...data]
+            setWeather(asd);
+          }
+          setSearch('')
 
+        })
+      })
   }
   return (
     <>

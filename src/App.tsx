@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 import Left from './components/Left/Left'
+import Loader from './components/Loader'
 import Right from './components/Right/Right'
 import { getForecast, getForecastFor7Days } from './functions/api'
 export interface ILocation {
@@ -81,8 +82,14 @@ export const App = () => {
 
     <div className="app">
       <context.Provider value={{ weather, setWeather }}>
-        <Left />
-        <Right />
+        {
+          weather.current ?
+            <>
+              <Left />
+              <Right />
+            </> : <Loader />
+        }
+
       </context.Provider>
 
     </div>
