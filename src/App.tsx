@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
 import Left from './components/Left/Left'
 import Right from './components/Right/Right'
-import { getForecast } from './functions/api'
+import { getForecast, getForecastFor7Days } from './functions/api'
 export interface ILocation {
   "name": string,
   "country": string,
@@ -32,18 +32,18 @@ export interface IForecastDay {
       "code": number,
     },
     "daily_chance_of_rain": number,
-
-    hour: {
-      "time_epoch": number,
-      "temp_c": number,
-      "condition": {
-        "text": string,
-        "icon": string,
-        "code": number,
-      },
-      "chance_of_rain": 67,
-    }[]
   }
+  hour: {
+    "time_epoch": number,
+    "temp_c": number,
+    "condition": {
+      "text": string,
+      "icon": string,
+      "code": number,
+    },
+    "chance_of_rain": 67,
+  }[]
+
 
 }
 export interface IForecast {
@@ -63,9 +63,16 @@ export const context = createContext<{
 export const App = () => {
   const [weather, setWeather] = useState<IWeather>({} as IWeather)
   useEffect(() => {
-    
-    (getForecast("Коротыч").then(data => {setWeather(data)}
-    ));
+    getForecast("Коломыя")
+      .then(firstdata => (firstdata))
+      .then((fulldata) => {
+        getForecastFor7Days("Коломыя").then(data => {
+          const asd: IWeather = JSON.parse(JSON.stringify(fulldata))
+          asd.forecast.forecastday = [...asd.forecast.forecastday, ...data]
+          setWeather(asd);
+        })
+      })
+
   }, [])
 
 
