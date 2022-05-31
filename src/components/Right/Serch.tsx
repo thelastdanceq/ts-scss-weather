@@ -3,7 +3,7 @@ import { context, IWeather } from '../../App'
 //@ts-ignore
 import locationimg from "../../assets/location.png"
 //@ts-ignore
-import search from "../../assets/search.png"
+import searchImg from "../../assets/search.png"
 import { getForecast, getForecastFor7Days } from '../../functions/api'
 type Props = {}
 
@@ -24,10 +24,9 @@ const Search = (props: Props) => {
               const asd: IWeather = JSON.parse(JSON.stringify(fulldata))
               asd.forecast.forecastday = [...asd.forecast.forecastday, ...data]
               setWeather(asd);
-              setSearch('')
-            } else {
-              setSearch('')
             }
+            setSearch('')
+
           })
         })
     }
@@ -54,7 +53,7 @@ const Search = (props: Props) => {
                 setSearch(e.currentTarget.value)
               }} />
             <div onClick={searchHandler} className="right-search-button">
-              <img src={search} alt="" />
+              <img src={searchImg} alt="" />
             </div>
           </div>
           : <h2>loading ...</h2>

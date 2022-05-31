@@ -7,13 +7,27 @@
         max-width: 600px;
         overflow-x: auto;
 
+        &::-webkit-scrollbar {
+            width: 5px;
+            height: 10px;
+            background-color: rgba(26, 24, 47, 0.15);
+            border-radius: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border: 3px solid rgba(134, 92, 253, 0.85);
+            background: #713FFD;
+        }
 
         &-item {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-right: 60px;
+
+            &:not(:last-child) {
+                margin-right: 60px;
+            }
 
             background: rgba(255, 255, 255, 0.2);
             color: white;

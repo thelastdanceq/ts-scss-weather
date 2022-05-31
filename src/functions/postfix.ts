@@ -11,7 +11,7 @@ import mist from '../assets/mist.png'
 // @ts-ignore
 import overcast from '../assets/overcast.png'
 // @ts-ignore
-import rain from '../assets/rain.png'
+import rain from '../assets/rainW.png'
 // @ts-ignore
 import snow from '../assets/snow.png'
 // @ts-ignore
