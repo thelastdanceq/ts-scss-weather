@@ -1,7 +1,9 @@
 // 320px — 480px: Mobile devices
 
-@media (min-width : 320px) and (max-width : 480px) {
+@media (min-width : 320px) and (max-width : 600px) {
     .app {
+        padding-top: 30px;
+
         .left {
 
             max-width: 100%;
@@ -21,14 +23,14 @@
                     }
 
                     p {
-                        font-size: 40px;
+                        font-size: 35px;
                     }
                 }
             }
 
 
             .now-temp {
-                font-size: 130px;
+                font-size: 100px;
             }
 
             .now-stats {
@@ -71,7 +73,76 @@
 }
 
 // 481px — 768px: iPads, Tablets
-@media screen and (min-width : 481px) and (max-width : 768px) {}
+// @media screen and (min-width : 481px) and (max-width : 768px) {
+//     .app {
+//         padding-top: 30px;
+
+//         .left {
+
+//             max-width: 100%;
+//             margin: 0;
+
+//             .now {
+//                 display: flex;
+//                 flex-direction: column;
+//                 justify-content: center;
+//                 align-items: center;
+//                 text-align: center;
+
+//                 &-date {
+
+//                     span {
+//                         font-size: 50px;
+//                     }
+
+//                     p {
+//                         font-size: 35px;
+//                     }
+//                 }
+//             }
+
+
+//             .now-temp {
+//                 font-size: 100px;
+//             }
+
+//             .now-stats {
+//                 display: flex;
+//                 flex-direction: column;
+
+//                 & div {
+//                     border: none;
+//                     padding: 0;
+//                     justify-content: flex-start;
+//                     font-size: 25px;
+
+//                     &:not(:last-child) {
+//                         padding-bottom: 10px;
+//                     }
+//                 }
+//             }
+
+//             .weekforecast {
+//                 padding: 40px 10px 0px 10px;
+//             }
+//         }
+
+//         .right {
+//             padding-right: 0;
+//             padding-top: 45px;
+//             width: 90%;
+
+//             &-search {
+
+//                 top: 20px;
+
+//                 input {
+//                     width: 70%;
+//                 }
+//             }
+//         }
+//     }
+// }
 
 // 769px — 1024px: Small screens, laptops
 @media screen and (min-width : 769px) and (max-width : 1024px) {}
