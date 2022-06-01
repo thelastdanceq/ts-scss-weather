@@ -65,12 +65,13 @@ export const context = createContext<{
 } | null>(null);
 
 export const App = () => {
-  const [weather, setWeather] = useState<IWeather>({} as IWeather)
+  const [weather, setWeather] = useState<IWeather>({} as IWeather);
+
   useEffect(() => {
-    getForecast("Коломыя")
+    getForecast(localStorage.getItem('city') || "London")
       .then(firstdata => (firstdata))
       .then((fulldata) => {
-        getForecastFor7Days("Коломыя").then(data => {
+        getForecastFor7Days(localStorage.getItem('city') || "London").then(data => {
           const asd: IWeather = JSON.parse(JSON.stringify(fulldata))
           asd.forecast.forecastday = [...asd.forecast.forecastday, ...data]
           setWeather(asd);

@@ -8,6 +8,7 @@ import { getForecast, getForecastFor7Days } from '../../functions/api'
 type Props = {}
 
 const Search = (props: Props) => {
+
   const cont = useContext(context);
   const { weather, setWeather } = cont!
   const { location } = weather;
@@ -21,6 +22,7 @@ const Search = (props: Props) => {
         .then((fulldata: IWeather) => {
           getForecastFor7Days(search).then(data => {
             if (fulldata.forecast) {
+              localStorage.setItem('city', search);
               const asd: IWeather = JSON.parse(JSON.stringify(fulldata))
               asd.forecast.forecastday = [...asd.forecast.forecastday, ...data]
               setWeather(asd);
@@ -41,6 +43,7 @@ const Search = (props: Props) => {
           if (fulldata.forecast) {
             const asd: IWeather = JSON.parse(JSON.stringify(fulldata))
             asd.forecast.forecastday = [...asd.forecast.forecastday, ...data]
+            localStorage.setItem('city', search);
             setWeather(asd);
           }
           setSearch('')
